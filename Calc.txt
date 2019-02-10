@@ -1,0 +1,350 @@
+import java.awt.Color;
+import java.awt.Insets;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import java.util.Scanner;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javax.swing.text.View;
+
+public class JavaFX extends Application {
+    public double var1, var2, res;
+    public int calc;
+    public double result=0;
+    public static void main(String[] args) {
+        Application.launch(args);
+    }
+    public void start(Stage stage) {
+        methods mt = new methods();
+        Label superCalc = new Label("My calculator");
+        //TextField firstNum = new TextField();
+        //TextField secondNum = new TextField();
+        Label ta = new Label("");
+        Button b1 = new Button("1");
+        Button b2 = new Button("2");
+        Button b3 = new Button("3");
+        Button b4 = new Button("4");
+        Button b5 = new Button("5");
+        Button b6 = new Button("6");
+        Button b7 = new Button("7");
+        Button b8 = new Button("8");
+        Button b9 = new Button("9");
+        Button b0 = new Button("0");
+        Button plus = new Button("+");
+        Button minus = new Button("-");
+        Button umnozhenie = new Button("*");
+        Button delenie = new Button("?");
+        Button equal = new Button("=");
+        Button clear = new Button("C");
+        Button percent = new Button("%");
+        Button touch = new Button(".");
+        Button plmn = new Button("±");
+        
+        //Label result = new Label("My calculator");
+        //Button exitBtn = new Button("Exit");
+        //VBox root = new VBox();
+        
+      //root.getChildren().addAll(ta, b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, plus, minus, umnozhenie, delenie, equal);
+      
+      
+        
+      b1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"1");
+            }
+        });
+        b2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"2");
+            }
+        });
+        b3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"3");
+            }
+        });
+       b4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"4");
+            }
+        });
+       b5.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"5");
+            }
+        });
+       b6.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"6");
+            }
+        });
+       b7.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"7");
+            }
+        });
+       b8.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"8");
+            }
+        });
+       b9.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"9");
+            }
+        });
+       b0.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                ta.setText(ta.getText()+"0");
+            }
+        }); 
+        plus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = Double.parseDouble(ta.getText());
+                calc = 1;
+                ta.setText("");
+            }
+        });
+ 
+       minus.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = Double.parseDouble(ta.getText());
+                calc =2;
+                ta.setText("");
+            }
+        });
+       
+       umnozhenie.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = Double.parseDouble(ta.getText());
+                calc = 3;
+                ta.setText("");
+            }
+        }); 
+       delenie.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = Double.parseDouble(ta.getText());
+                calc = 4;
+                ta.setText("");
+            }
+        }); 
+       percent.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = Double.parseDouble(ta.getText());
+                calc = 5;
+                ta.setText("");
+            }
+        }); 
+       touch.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                 ta.setText(ta.getText()+"."); 
+            }
+        }); 
+       plmn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = (-1)*Double.parseDouble(ta.getText()+"");
+                ta.setText(String.valueOf(var1));
+            }
+        }); 
+       clear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var1 = 0;
+                var2 = 0;
+                ta.setText("");
+            }
+        }); 
+      equal.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                var2=Double.parseDouble(ta.getText());
+                if(result==0){
+                    if(calc==1){
+                        res = var1+var2;
+                    }
+                    if(calc==2){
+                        res = var1-var2;
+                    }
+                    if(calc==3){
+                        res = var1*var2;
+                    }
+                    if(calc==4){
+                        res = var1/var2;
+                    }
+                    if(calc==5){
+                        res= var1 * var2 / 100;
+                    }
+                    
+                    ta.setText(String.valueOf(res)+"");
+                }
+            }
+        });
+       
+    Pane p = new Pane();
+    ta.setPrefHeight(50);
+    ta.setPrefWidth(220);
+    ta.setLayoutX(20);
+    ta.setLayoutY(5);
+    ta.setDisable(true);
+    ta.setStyle("-fx-font-size: 20pt;");
+
+    clear.setLayoutX(11);
+    clear.setLayoutY(75);
+    clear.setPrefHeight(50);
+    clear.setPrefWidth(50);
+    clear.setStyle("-fx-font-size: 15pt;");
+    plmn.setLayoutX(70);
+    plmn.setLayoutY(75);
+    plmn.setPrefHeight(50);
+    plmn.setPrefWidth(50);
+    plmn.setStyle("-fx-font-size: 15pt;");
+    percent.setLayoutX(129);
+    percent.setLayoutY(75);
+    percent.setPrefHeight(50);
+    percent.setPrefWidth(50);
+    percent.setStyle("-fx-font-size: 15pt;");
+    delenie.setLayoutX(188);
+    delenie.setLayoutY(75);
+    delenie.setPrefHeight(50);
+    delenie.setPrefWidth(50);
+    delenie.setStyle("-fx-font-size: 15pt;");
+    
+    b7.setLayoutX(11);
+    b7.setLayoutY(135);
+    b7.setPrefHeight(50);
+    b7.setPrefWidth(50);
+    b7.setStyle("-fx-font-size: 15pt;");
+    b8.setLayoutX(70);
+    b8.setLayoutY(135);
+    b8.setPrefHeight(50);
+    b8.setPrefWidth(50);
+    b8.setStyle("-fx-font-size: 15pt;");
+    b9.setLayoutX(129);
+    b9.setLayoutY(135);
+    b9.setPrefHeight(50);
+    b9.setPrefWidth(50);
+    b9.setStyle("-fx-font-size: 15pt;");
+    umnozhenie.setLayoutX(188);
+    umnozhenie.setLayoutY(135);
+    umnozhenie.setPrefHeight(50);
+    umnozhenie.setPrefWidth(50);
+    umnozhenie.setStyle("-fx-font-size: 15pt;");
+   
+    b4.setLayoutX(11);
+    b4.setLayoutY(195);
+    b4.setPrefHeight(50);
+    b4.setPrefWidth(50);
+    b4.setStyle("-fx-font-size: 15pt;");
+    b5.setLayoutX(70);
+    b5.setLayoutY(195);
+    b5.setPrefHeight(50);
+    b5.setPrefWidth(50);
+    b5.setStyle("-fx-font-size: 15pt;");
+    b6.setLayoutX(129);
+    b6.setLayoutY(195);
+    b6.setPrefHeight(50);
+    b6.setPrefWidth(50);
+    b6.setStyle("-fx-font-size: 15pt;");
+    plus.setLayoutX(188);
+    plus.setLayoutY(195);
+    plus.setPrefHeight(50);
+    plus.setPrefWidth(50);
+    plus.setStyle("-fx-font-size: 15pt;");
+    
+    b1.setLayoutX(11);
+    b1.setLayoutY(255);
+    b1.setPrefHeight(50);
+    b1.setPrefWidth(50);
+    b1.setStyle("-fx-font-size: 15pt;");
+    b2.setLayoutX(70);
+    b2.setLayoutY(255);
+    b2.setPrefHeight(50);
+    b2.setPrefWidth(50);
+    b2.setStyle("-fx-font-size: 15pt;");
+    b3.setLayoutX(129);
+    b3.setLayoutY(255);
+    b3.setPrefHeight(50);
+    b3.setPrefWidth(50);
+    b3.setStyle("-fx-font-size: 15pt;");
+    minus.setLayoutX(188);
+    minus.setLayoutY(255);
+    minus.setPrefHeight(50);
+    minus.setPrefWidth(50);
+    minus.setStyle("-fx-font-size: 15pt;");
+    touch.setLayoutX(11);
+    touch.setLayoutY(315);
+    touch.setPrefHeight(50);
+    touch.setPrefWidth(50);
+    touch.setStyle("-fx-font-size: 15pt;");
+    b0.setLayoutX(70);
+    b0.setLayoutY(315);
+    b0.setPrefHeight(50);
+    b0.setPrefWidth(50);
+    b0.setStyle("-fx-font-size: 15pt;");
+    equal.setLayoutX(129);
+    equal.setLayoutY(315);
+    equal.setPrefHeight(50);
+    equal.setPrefWidth(110);
+    equal.setStyle("-fx-font-size: 15pt;");
+   
+    
+    
+    p.getChildren().add(b1); 
+    p.getChildren().add(b2);
+    p.getChildren().add(b3);
+    p.getChildren().add(b4);
+    p.getChildren().add(b5);
+    p.getChildren().add(b6);
+    p.getChildren().add(b7);
+    p.getChildren().add(b8);
+    p.getChildren().add(b9);
+    p.getChildren().add(b0);
+    p.getChildren().add(plus);
+    p.getChildren().add(minus);
+    p.getChildren().add(umnozhenie);
+    p.getChildren().add(delenie);
+    p.getChildren().add(percent);
+    p.getChildren().add(clear);
+    p.getChildren().add(touch);
+    p.getChildren().add(plmn);
+    p.getChildren().add(equal);
+    p.getChildren().add(ta);
+    
+    
+    
+    
+    stage.setScene(new Scene(p, 254, 375));
+    stage.show();
+    }
+
+}
